@@ -1,8 +1,7 @@
 /* adjust look of the unsorted list with the following attributes */
 
 body {
-  margin: 0;
-  
+  margin: 0;  
 }
 
 .navbar {
@@ -18,6 +17,8 @@ body {
   border-style: none;
   max-width:100%;
   opacity: .8;
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;
 }  
 
 /* adjust list elements to float left side justified */
