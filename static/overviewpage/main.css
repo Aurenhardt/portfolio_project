@@ -16,7 +16,7 @@ body {
   text-align: center;
   border-style: none;
   max-width:100%;
-  opacity: .8;
+  opacity: 1;
   font-family: din-condensed, sans-serif;
   font-weight: bold;
 }  
@@ -44,12 +44,12 @@ body {
 /* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
 
 .navbar a:hover {
-  border-bottom: 5px solid #4caf50;
+  border-bottom: 5px solid #00E0A8;
 }
 
 /* highlights the page the user is currently on */
 
 .active {
-  border-bottom: 5px solid #4caf50;
+  border-bottom: 5px solid #00E0A8;
 
 }
