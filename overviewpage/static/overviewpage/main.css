@@ -1,9 +1,8 @@
-/* adjust look of the unsorted list with the following attributes */
-
 body {
   margin: 0;  
 }
 
+/* adjust look of the unsorted list with the following attributes */
 .navbar {
   positon:top;
   list-style-type: none;
@@ -44,13 +43,27 @@ body {
 /* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
 
 .navbar a:hover {
-  border-bottom: solid;
-  border-color: #00E0A8;
+  border-bottom: 5px solid #00E0A8;
 }
 
 /* highlights the page the user is currently on */
 
 .active {
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid #00E0A8;
+
+}
+
+.parallax{
+  /* The image used */
+  background: url('static/img/WebsiteBackground.png');
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
