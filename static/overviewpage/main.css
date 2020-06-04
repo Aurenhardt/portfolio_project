@@ -16,8 +16,6 @@ body {
   border-style: none;
   max-width:100%;
   opacity: 1;
-  font-family: din-condensed, sans-serif;
-  font-weight: bold;
 }  
 
 /* adjust list elements to float left side justified */
@@ -27,7 +25,8 @@ body {
   display:inline;
   text-align:center;
   text-decoration: none;
-  
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;  
 }
 
 /* adjust the 'a' elements in the list entry to look like the follwoing */
@@ -54,16 +53,101 @@ body {
 }
 
 .parallax{
-  /* The image used */
-  background: url('static/img/WebsiteBackground.png');
+  border: none;
+  padding-top: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+/* getting image from static */
+  background: url('/static/img/WebsiteBackground.png');
 
-  /* Set a specific height */
+/* setting height */
   min-height: 500px; 
 
-  /* Create the parallax scrolling effect */
+/* Parallax Effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
+/* cleaning up white bars*/
+  overflow: hidden;
+
+/* text settings */
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.gallery-container{
+/* getting image from static */
+  background: url('/static/img/WebsiteParallaxBackground.png');
+
+/* setting height */
+  min-height: 500px; 
+
+/* parallax effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+/* cleaning up white bars*/
+  overflow: hidden;
+}
+
+.parallax .title-card{
+  position:center;
+  padding-top: 100px;
+}
+
+.title-card li{
+  list-style-type:none;
+  display: inline;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+}
+
+.title-card ul{
+  margin: 0px;
+}
+
+.title-card a{  
+  font-size: 700%;
+}
+
+.highlight{
+  color: #00E0A8; 
+}
+
+.parallax .tagline{
+  font-size: 200%;
+  font-family: sweet-sans-pro, sans-serif;
+  font-weight: 75;
+  padding-bottom: 25px;
+}
+
+.solid{
+  border-top: 2px solid white;
+}
+
+.button{
+  background-color: transparent;
+  border: 5px solid #00E0A8;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  
+}
+
+.button:hover{
+  background-color: #00E0A8;
 }
