@@ -80,6 +80,12 @@ body {
 }
 
 .gallery-container{
+  border: none;
+  padding-top: 100px;
+  padding-right: 25px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+
 /* getting image from static */
   background: url('/static/img/WebsiteParallaxBackground.png');
 
@@ -94,6 +100,17 @@ body {
 
 /* cleaning up white bars*/
   overflow: hidden;
+}
+
+.gallery-container .title-card{
+  margin: auto;
+  color: white;
+}
+
+.gallery-container .title-card ul{
+  padding: 0px;
+  text-align: center;
+  position: center;
 }
 
 .parallax .title-card{
@@ -123,7 +140,6 @@ body {
 .parallax .tagline{
   font-size: 200%;
   font-family: sweet-sans-pro, sans-serif;
-  font-weight: 75;
   padding-bottom: 25px;
 }
 
@@ -150,4 +166,37 @@ body {
 
 .button:hover{
   background-color: #00E0A8;
+}
+/* ====Credits Portion==== */
+
+.credits{
+  positon:bottom;
+  list-style-type: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111;
+  text-decoration: none;
+  text-align: center;
+  border-style: none;
+  max-width:100%;
+  opacity: 1;
+}
+
+.credits li {
+  float:left;
+  display:inline;
+  text-align:center;
+  text-decoration: none;
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;  
+}
+
+.credits a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-d
 }

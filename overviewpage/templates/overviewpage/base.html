@@ -50,13 +50,39 @@
         </ul>
     </div>
  </div>
-	<div class="gallery-container">
-    		{% block content %}{% endblock %}
-	</div>
+
+ <div class="gallery-container">
+    <div class="title-card">
+        <ul>
+          <li><a>FEATURED </a></li>
+          <li><a class="highlight"> WORK</a></li>
+          <hr class="solid">
+        </ul>
+    </div>
+ 
+   		{% block content %}{% endblock %}
+ </div>
 
 
- <div class="parallax"></div>
-    
+ <div class="parallax">
+    <div class="lower-button-group">
+        <ul>
+          <li><button class="button" href="#contactme">CONTACT ME</button></li>
+          <li><button class="button" href="resume">MY RESUME</button></li>
+        </ul>
+    </div>
+</div>
+
+<!--credits-->
+ <ul class="credits">
+        <li><a class="active" href="#overview">OVERVIEW</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#links">LINKS</a></li>
+ </ul>    
+<!--endcredits-->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
