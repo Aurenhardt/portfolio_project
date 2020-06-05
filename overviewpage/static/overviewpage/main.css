@@ -167,6 +167,55 @@ body {
 .button:hover{
   background-color: #00E0A8;
 }
+
+.lower-button-group{
+ padding-left: 100px;
+}
+
+.lower-button-group .button-text-unit{
+  padding-top:50px;
+  padding-bottom:50px;
+  padding-left:100px;
+  padding-right:100px;
+}
+
+.lower-button-group ul{
+  padding:100px;
+}
+
+.lower-button-group li{
+  list-style-type:none;
+  display:inline;
+}
+
+.lower-button-group .button{
+  border-radius:50%;
+  height:50px;
+  width:50px;
+  background: #00E0A8;
+  padding: 0px;
+}
+
+.lower-button-group .button:hover{
+  background-color:white;
+}
+
+.lower-button-group ul .button-text-unit  {
+  list-style-type:none;
+  text-decoration:none;
+}
+
+.lower-button-group .button-text-unit  a{
+  list-style-type:none;
+  text-decoration:none;
+  height:50px;
+  width:50px;
+  font-size:300%;
+  padding-left: 50px;
+  padding-right:100px;
+}
+
+
 /* ====Credits Portion==== */
 
 .credits{
@@ -198,5 +247,4 @@ body {
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-d
 }
