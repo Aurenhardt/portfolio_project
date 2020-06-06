@@ -1,0 +1,250 @@
+body {
+  margin: 0;  
+}
+
+/* adjust look of the unsorted list with the following attributes */
+.navbar {
+  positon:top;
+  list-style-type: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111;
+  text-decoration: none;
+  text-align: center;
+  border-style: none;
+  max-width:100%;
+  opacity: 1;
+}  
+
+/* adjust list elements to float left side justified */
+
+.navbar li {
+  /*float:left;*/
+  display:inline;
+  text-align:center;
+  text-decoration: none;
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;  
+}
+
+/* adjust the 'a' elements in the list entry to look like the follwoing */
+
+.navbar a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
+
+.navbar a:hover {
+  border-bottom: 5px solid #00E0A8;
+}
+
+/* highlights the page the user is currently on */
+
+.active {
+  border-bottom: 5px solid #00E0A8;
+
+}
+
+.parallax{
+  border: none;
+  padding-top: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+/* getting image from static */
+  background: url('/static/img/WebsiteBackground.png');
+
+/* setting height */
+  min-height: 500px; 
+
+/* Parallax Effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+/* cleaning up white bars*/
+  overflow: hidden;
+
+/* text settings */
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.gallery-container{
+  border: none;
+  padding-top: 100px;
+  padding-right: 25px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+
+/* getting image from static */
+  background: url('/static/img/WebsiteParallaxBackground.png');
+
+/* setting height */
+  min-height: 500px; 
+
+/* parallax effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+/* cleaning up white bars*/
+  overflow: hidden;
+}
+
+.gallery-container .title-card{
+  margin: auto;
+  color: white;
+}
+
+.gallery-container .title-card ul{
+  padding: 0px;
+  text-align: center;
+  position: center;
+}
+
+.parallax .title-card{
+  position:center;
+  padding-top: 100px;
+}
+
+.title-card li{
+  list-style-type:none;
+  display: inline;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+}
+
+.title-card ul{
+  margin: 0px;
+}
+
+.title-card a{  
+  font-size: 700%;
+}
+
+.highlight{
+  color: #00E0A8; 
+}
+
+.parallax .tagline{
+  font-size: 200%;
+  font-family: sweet-sans-pro, sans-serif;
+  padding-bottom: 25px;
+}
+
+.solid{
+  border-top: 2px solid white;
+}
+
+.button{
+  background-color: transparent;
+  border: 5px solid #00E0A8;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  
+}
+
+.button:hover{
+  background-color: #00E0A8;
+}
+
+.lower-button-group{
+ padding-left: 100px;
+}
+
+.lower-button-group .button-text-unit{
+  padding-top:50px;
+  padding-bottom:50px;
+  padding-left:100px;
+  padding-right:100px;
+}
+
+.lower-button-group ul{
+  padding:100px;
+}
+
+.lower-button-group li{
+  list-style-type:none;
+  display:inline;
+}
+
+.lower-button-group .button{
+  border-radius:50%;
+  height:50px;
+  width:50px;
+  background: #00E0A8;
+  padding: 0px;
+}
+
+.lower-button-group .button:hover{
+  background-color:white;
+}
+
+.lower-button-group ul .button-text-unit  {
+  list-style-type:none;
+  text-decoration:none;
+}
+
+.lower-button-group .button-text-unit  a{
+  list-style-type:none;
+  text-decoration:none;
+  height:50px;
+  width:50px;
+  font-size:300%;
+  padding-left: 50px;
+  padding-right:100px;
+}
+
+
+/* ====Credits Portion==== */
+
+.credits{
+  positon:bottom;
+  list-style-type: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111;
+  text-decoration: none;
+  text-align: center;
+  border-style: none;
+  max-width:100%;
+  opacity: 1;
+}
+
+.credits li {
+  float:left;
+  display:inline;
+  text-align:center;
+  text-decoration: none;
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;  
+}
+
+.credits a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
