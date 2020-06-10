@@ -31,7 +31,7 @@ body {
 
 /* adjust the 'a' elements in the list entry to look like the follwoing */
 
-.navbar a {
+.navbar .btn {
   display: inline-block;
   color: white;
   text-align: center;
@@ -41,7 +41,7 @@ body {
 
 /* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
 
-.navbar a:hover {
+.navbar .btn:hover {
   border-bottom: 5px solid #00E0A8;
 }
 
@@ -110,8 +110,25 @@ body {
 .gallery-container .title-card ul{
   padding: 0px;
   text-align: center;
-  position: center;
+  position: static;
 }
+/*Gallery*/
+.gallery {
+  display: inline-block;
+  position: static;
+  padding: 50px;
+  overflow:hidden;
+  float:center;
+  width: 100%;
+}
+
+.gallery img{
+  overflow:hidden;
+  padding: 10px;
+}
+
+
+/*=====*/
 
 .parallax .title-card{
   position:center;

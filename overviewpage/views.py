@@ -1,34 +1,62 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 #Dummy Data to mimic entries in a database to pass into the html.
 
-posts = [
-	{
-	 'author': 'Aurenhardt',
-	 'title': 'Entry 1',
-	 'content': 'Description 1',
-	 'date_posted': 'June 1, 2020'
-
-	},
-	{
-         'author': 'Aurelius',
-         'title': 'Entry 2',
-         'content': 'Description 2',
-         'date_posted': 'June 2, 2020'
-
-        }
-]
-
-
 def home(request):
 	context = { 
-		'posts': posts 
+		'posts': Post.objects.all(),
+                'pageName': 'home',
+		'pageTitle': 'CHRISTIAN ',
+		'pageTitleHighlight': 'GOMEZ',
+		'pageTagline': 'ILLUSTRATOR | WEB DESIGNER | DEVELOPER',
+		'pageBottomTitle': 'MY ',
+		'pageBottomTitleHighlight': 'LINKS',
+		'LINK1': 'LINK1',
+		'LINK2': 'LINK2',
+		'LINK3': 'LINK3',
+		'LINK4': 'LINK4',
+		'galleryEnabled': "true"
+		
+
 	}
 
 #Dictionary that contains a key 'posts' which is connected to the posts list at the beginning.
  
 	return render(request,'overviewpage/overviewpage.html', context)
 
+
+
 def about(request):
-	return render(request,'overviewpage/about.html')
+	context = {
+		'pageName': "about",
+		'pageTitle': 'ABOUT ',
+		'pageTitleHighlight': 'ME',
+		'pageTagline': ' ',
+		'pageBottomTitle': 'CONTACT ',
+		'pageBottomTitleHighlight': 'ME',
+		'LINK1': 'LINK5',
+		'LINK2': 'LINK6',
+		'LINK3': 'LINK7',
+		'LINK4': 'LINK8',
+		'galleryEnabled': "false"
+
+	}
+	return render(request,'overviewpage/about.html', context)
+
+def links(request):
+	context = {
+		'pageName': 'links',
+		'pageTitle': 'IF YOU WOULD LIKE TO KNOW ',
+		'pageTitleHighlight': 'MORE',
+		'pageBottomTitle': 'CONTACT ',
+		'pageBottomTitleHighlight': 'CONTACT ',
+		'LINK1': 'LINK9',
+		'LINK2': 'LINK1',
+		'LINK3': 'LINK2',
+		'LINK4': 'LINK3',
+		'galleryEnabled': "false"
+	}
+	return render(request,'overviewpage/links.html',context)
+
