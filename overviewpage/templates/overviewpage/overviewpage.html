@@ -4,10 +4,9 @@
 		<div class="title-card">
 			<div class="gallery">
 			{% for post in posts %}
-				    <img src="{{post.image.url}}" alt="Test" width="400" height="400">
+				    <div><img src="{{post.image.url}}" alt="Test" width="400" height="400"></div>
 			{% endfor %}
 			</div>
-
 		</div>
 	
 	{% endblock %}

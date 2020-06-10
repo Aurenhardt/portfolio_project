@@ -115,17 +115,22 @@ body {
 /*Gallery*/
 .gallery {
   display: inline-block;
-  position: static;
   padding: 50px;
   overflow:hidden;
-  float:center;
-  width: 100%;
+  width: fit-content;
+  text-align: center;
 }
 
-.gallery img{
+.gallery>div{
   overflow:hidden;
   padding: 10px;
+  display:inline-block;
 }
+
+.gallery>div>img{
+  vertical-align:middle;
+}
+
 
 
 /*=====*/
