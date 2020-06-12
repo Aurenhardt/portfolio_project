@@ -1,10 +1,16 @@
+
 {% extends "overviewpage/base.html" %}
 
 	{% block gallery %}
 		<div class="title-card">
 			<div class="gallery">
 			{% for post in posts %}
-				    <div><img src="{{post.image.url}}" alt="Test" width="400" height="400"></div>
+				    <div id="btn">
+					<img src="{{post.image.url}}" alt="Test" width="400" height="400" onclick="DoSomething();">
+				    </div>
+
+
+
 			{% endfor %}
 			</div>
 		</div>
