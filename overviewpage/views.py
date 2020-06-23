@@ -17,14 +17,10 @@ def home(request):
 		'LINK2': 'LINK2',
 		'LINK3': 'LINK3',
 		'LINK4': 'LINK4',
-		'galleryEnabled': "true"
-		
-
 	}
-
 #Dictionary that contains a key 'posts' which is connected to the posts list at the beginning.
  
-	return render(request,'overviewpage/overviewpage.html', context)
+	return render(request,'overviewpage/homepage.html', context)
 
 
 
@@ -33,30 +29,27 @@ def about(request):
 		'pageName': "about",
 		'pageTitle': 'ABOUT ',
 		'pageTitleHighlight': 'ME',
-		'pageTagline': ' ',
+		'pageTagline': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 		'pageBottomTitle': 'CONTACT ',
 		'pageBottomTitleHighlight': 'ME',
 		'LINK1': 'LINK5',
 		'LINK2': 'LINK6',
 		'LINK3': 'LINK7',
 		'LINK4': 'LINK8',
-		'galleryEnabled': "false"
-
 	}
-	return render(request,'overviewpage/about.html', context)
+	return render(request,'overviewpage/aboutpage.html', context)
 
 def links(request):
 	context = {
 		'pageName': 'links',
 		'pageTitle': 'IF YOU WOULD LIKE TO KNOW ',
 		'pageTitleHighlight': 'MORE',
-		'pageBottomTitle': 'CONTACT ',
-		'pageBottomTitleHighlight': 'CONTACT ',
+		'pageBottomTitle': 'IF YOU WOULD LIKE TO SEE ',
+		'pageBottomTitleHighlight': 'MORE ',
 		'LINK1': 'LINK9',
 		'LINK2': 'LINK1',
 		'LINK3': 'LINK2',
 		'LINK4': 'LINK3',
-		'galleryEnabled': "false"
 	}
-	return render(request,'overviewpage/links.html',context)
+	return render(request,'overviewpage/linkspage.html',context)
 
