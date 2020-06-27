@@ -31,7 +31,13 @@
    <li><a class="btn" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
 {% endif %}
    <li><a class="btn" href="#projects">PROJECTS</a></li>
-   <li><a class="btn" href="#gallery">GALLERY</a></li>
+
+{% if pageName == "gallery" %}
+   <li><a class="btn active" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>
+{% endif %}
+  <!-- <li><a class="btn" href="#gallery">GALLERY</a></li>-->
 
 {% if pageName == "about" %}
    <li><a class="btn active" href="{% url 'overviewpage-about' %}">ABOUT</a></li>

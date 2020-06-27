@@ -1,0 +1,142 @@
+{% extends "overviewpage/navbar.html" %}
+
+	{% block titlecard %}	
+<!--parallax-->
+	 <div class="parallax">
+	    <div class="title-card">
+	        <ul>
+	          <li><a>{{ pageTitle }}</a></li>
+	          <li><a>   </a></li>
+	          <li><a class="highlight">{{ pageTitleHighlight }}</a></li>
+	        </ul>
+	        <ul>
+	          <li><a class="tagline">{{ pageTagline }}</a></li>
+	          <hr class="solid">
+	        </ul>
+	<!--Title Buttons-->
+	        <ul>
+		  <li><button class="button" onclick=Filter("general")>GENERAL WORK</button></li>
+	          <li><button class="button" onclick=Filter("concept")>CONCEPT ART</button></li>
+	          <li><button class="button" onclick=Filter("portraits")>MY PORTRAITS</button></li>
+		  <li><button class="button" onclick=Filter("chardesign")>CHARACTER DESIGN</button></li>
+                  <li><button class="button" onclick=Filter("posters")>MY POSTERS</button></li>
+	        </ul>
+	<!--endbuttons-->
+
+	    </div>
+	 </div>
+<!--endparallax-->
+
+	{% endblock titlecard %}
+
+
+
+	{% block content %}
+	 <div class="gallery-container">
+		    <div class="title-card">
+		        <ul>
+          		 <li><a>TEST </a></li>
+          		 <li><a class="highlight"> WORK</a></li>
+          		 <hr class="solid">
+        		</ul>
+		    </div>
+                <div class="title-card">
+                        <div class="gallery">
+                        {% for post in posts %}
+
+				<!--<script>alert("{{post.PostCategory}}")</script>-->				
+			     <a id="gallery-content">
+				{% if post.PostCategory == "0" %}
+                                    <div id="galleryImg">
+                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+                                    </div>				
+				{% endif %}
+			     </a>
+
+			     <a id="gallery-content">
+                                {% if "{{post.PostCategory}}" == "1" %}
+                                    <div id="galleryImg">
+                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+                                    </div>
+                                {% endif %}
+			     </a>
+
+
+                             <a id="gallery-content">
+                                {% if "{{post.PostCategory}}" == "2" %}
+                                    <div id="galleryImg">
+                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+                                    </div>
+                                {% endif %}
+                             </a>
+
+                             <a id="gallery-content">
+                                {% if "{{post.PostCategory}}" == "3" %}
+                                    <div id="galleryImg">
+                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+                                    </div>
+                                {% endif %}
+                             </a>
+
+                             <a id="gallery-content">
+                                {% if "{{post.PostCategory}}" == "4" %}
+                                    <div id="galleryImg">
+                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+                                    </div>
+                                {% endif %}
+                             </a>
+
+
+                        {% endfor %}
+                        </div>
+                </div>
+	</div>
+
+ 
+
+	{% endblock content %}
+
+
+	{% block modal %}
+	 <div id="myModal" class="modal">
+		<span class="close">&times;</span>
+		<img class="modal-content" id="img01">
+		<div id="caption"></div>
+	 </div>
+
+	{% endblock modal %}
+
+	{% block script %}
+	 <script>
+
+		//this variable gets the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var img = document.getElementById("myImg");
+		var modalImg = document.getElementById("img01");
+		var captionText = document.getElementById("caption");
+
+		function ViewImage(a){
+		  modal.style.display = "block";
+		  modalImg.src = a;
+		  captionText.innerHTML = this.alt; 
+		}
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		function Filter(a){
+			alert(a);	
+		}
+	
+		
+
+
+	 </script>
+	{% endblock script %}

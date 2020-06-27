@@ -5,6 +5,7 @@ from . import views
 # views.home  access the home functions in views.py
 urlpatterns = [
 	path('', views.home, name='overviewpage-top'),
+	path('gallery/', views.gallery, name='overviewpage-gallery'),
 	path('about/', views.about, name='overviewpage-about'),
 	path('links/', views.links, name='overviewpage-links'),
 ]

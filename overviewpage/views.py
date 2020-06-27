@@ -22,7 +22,23 @@ def home(request):
  
 	return render(request,'overviewpage/homepage.html', context)
 
+def gallery(request):
+	context = {
+                'posts': Post.objects.all(),
+                'pageName': 'gallery',
+                'pageTitle': 'MY ',
+                'pageTitleHighlight': 'GALLERY',
+                'pageTagline': 'A COLLECTION OF MY VARIOUS VISUAL WORKS',
+                'pageBottomTitle': 'MY ',
+                'pageBottomTitleHighlight': 'LINKS',
+                'LINK1': 'LINK1',
+                'LINK2': 'LINK2',
+                'LINK3': 'LINK3',
+                'LINK4': 'LINK4',
 
+	}
+
+	return render(request,'overviewpage/gallery.html', context)
 
 def about(request):
 	context = {
