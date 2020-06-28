@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
 
-    POST_TYPE_CHOICES = (("0", "General"), ("1", "Armor Concepts"), ("2", "Portraits"), ("3", "Character Design"),)
+    POST_TYPE_CHOICES = (("0", "General"), ("1", "Armor Concepts"), ("2", "Portraits"), ("3", "Character Design"), ("4", "Posters"),)
 
     title = models.CharField(max_length=100)
     image = models.FileField(null=True, blank=True)

@@ -15,11 +15,11 @@
 	        </ul>
 	<!--Title Buttons-->
 	        <ul>
-		  <li><button class="button" onclick=Filter("general")>GENERAL WORK</button></li>
-	          <li><button class="button" onclick=Filter("concept")>CONCEPT ART</button></li>
-	          <li><button class="button" onclick=Filter("portraits")>MY PORTRAITS</button></li>
-		  <li><button class="button" onclick=Filter("chardesign")>CHARACTER DESIGN</button></li>
-                  <li><button class="button" onclick=Filter("posters")>MY POSTERS</button></li>
+		  <li><button class="button" onclick=Filter("0")>GENERAL WORK</button></li>
+	          <li><button class="button" onclick=Filter("1")>CONCEPT ART</button></li>
+	          <li><button class="button" onclick=Filter("2")>MY PORTRAITS</button></li>
+		  <li><button class="button" onclick=Filter("3")>CHARACTER DESIGN</button></li>
+                  <li><button class="button" onclick=Filter("4")>MY POSTERS</button></li>
 	        </ul>
 	<!--endbuttons-->
 
@@ -42,50 +42,13 @@
 		    </div>
                 <div class="title-card">
                         <div class="gallery">
-                        {% for post in posts %}
-
-				<!--<script>alert("{{post.PostCategory}}")</script>-->				
-			     <a id="gallery-content">
-				{% if post.PostCategory == "0" %}
-                                    <div id="galleryImg">
+                        {% for post in posts %}				
+                                
+			     <div id="{{post.PostCategory}}" class="gallery-content" style="display: inline-block;">
+				    <div id="galleryImg">
                                         <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
                                     </div>				
-				{% endif %}
-			     </a>
-
-			     <a id="gallery-content">
-                                {% if "{{post.PostCategory}}" == "1" %}
-                                    <div id="galleryImg">
-                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
-                                    </div>
-                                {% endif %}
-			     </a>
-
-
-                             <a id="gallery-content">
-                                {% if "{{post.PostCategory}}" == "2" %}
-                                    <div id="galleryImg">
-                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
-                                    </div>
-                                {% endif %}
-                             </a>
-
-                             <a id="gallery-content">
-                                {% if "{{post.PostCategory}}" == "3" %}
-                                    <div id="galleryImg">
-                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
-                                    </div>
-                                {% endif %}
-                             </a>
-
-                             <a id="gallery-content">
-                                {% if "{{post.PostCategory}}" == "4" %}
-                                    <div id="galleryImg">
-                                        <img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
-                                    </div>
-                                {% endif %}
-                             </a>
-
+			     </div>
 
                         {% endfor %}
                         </div>
@@ -111,6 +74,7 @@
 
 		//this variable gets the modal
 		var modal = document.getElementById("myModal");
+		var tabcontent = document.getElementsByClassName("gallery-content");
 
 		// Get the image and insert it inside the modal - use its "alt" text as a caption
 		var img = document.getElementById("myImg");
@@ -131,8 +95,19 @@
 		  modal.style.display = "none";
 		}
 
-		function Filter(a){
-			alert(a);	
+		function Filter(a){	
+			for (i = 0; i < tabcontent.length; i++) {
+				if(tabcontent[i].id == a){
+					//alert("MATCH");
+   					tabcontent[i].style.display = "inline-block";
+				}else{
+					tabcontent[i].style.display = "none";
+				}
+  			}
+		
+			
+
+			
 		}
 	
 		
