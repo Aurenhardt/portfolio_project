@@ -17,3 +17,6 @@ class Post(models.Model):
 
     def post_districtList(self):
         return dict(Post.POST_TYPE_CHOICES)[self.PostCategory]
+
+    def __str__(self):
+        return self.title

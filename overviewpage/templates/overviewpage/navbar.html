@@ -30,7 +30,12 @@
 {% else %}
    <li><a class="btn" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
 {% endif %}
-   <li><a class="btn" href="#projects">PROJECTS</a></li>
+
+{% if pageName == "projects" %}
+   <li><a class="btn active" href="{% url 'overviewpage-projects' %}">PROJECTS</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-projects' %}">PROJECTS</a></li>
+{% endif %}
 
 {% if pageName == "gallery" %}
    <li><a class="btn active" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>

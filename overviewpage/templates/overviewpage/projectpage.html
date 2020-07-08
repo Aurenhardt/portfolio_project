@@ -1,0 +1,134 @@
+{% extends "overviewpage/navbar.html" %}
+
+	{% block titlecard %}	
+<!--parallax-->
+	 <div class="parallax">
+	    <div class="title-card">
+	        <ul>
+	          <li><a>{{ pageTitle }}</a></li>
+	          <li><a>   </a></li>
+	          <li><a class="highlight">{{ pageTitleHighlight }}</a></li>
+	        </ul>
+	        <ul>
+	          <li><a class="tagline">{{ pageTagline }}</a></li>
+	          <hr class="solid">
+	        </ul>
+	<!--Title Buttons-->
+	        <ul>
+		  <li><button class="button" onclick=Filter("0")>APARTMENT WEBSITE</button></li>
+	          <li><button class="button" onclick=Filter("1")>COSMONAUT GAME</button></li>
+	          <li><button class="button" onclick=Filter("2")>THIS WEBSITE</button></li>
+	        </ul>
+	<!--endbuttons-->
+
+	    </div>
+	 </div>
+<!--endparallax-->
+
+	{% endblock titlecard %}
+
+
+
+	{% block content %}
+	 <div class="gallery-container">
+		    <div class="title-card">
+		        <ul>
+          		 <li><a>TEST </a></li>
+          		 <li><a class="highlight"> WORK</a></li>
+          		 <hr class="solid">
+        		</ul>
+		    </div>
+                <div class="title-card">
+
+		<div class="gallery">
+			<div id="0" class="gallery-content" style="display:hidden;">
+
+
+				<div class="project-container" style="display: inline-block; padding:50px;">
+                                	<div id="galleryImg" style="float:right; padding:10px;">
+                                        	<img id="myImg" src="https://placekitten.com/200/300" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
+                                	</div>
+					<h1>PROJ-TITLE1</h1>
+					<div class="proj-desc" style="display:">
+						<p>"Cats like boxes because they are cryptic animals; they like to hide," Stephen Zawistowski, science adviser for the American Society for the Prevention of Cruelty to Animals, told Business Insider. "And a box gives them a place of safety and security."</p>
+					        <p>While inside a box, cats feel that they cannot be snuck up on from behind or the side — anything that wants to approach them must come directly into their field of vision. In effect, such hiding spaces allow them to watch the world around them without being seen.</p>
+					</div>
+				</div><!--endproject-container-->
+
+				<div class="project-container" style="display: inline-block; padding:50px;">
+                                	<div id="galleryImg" style="float:left; padding:10px;">
+                                        	<img id="myImg" src="https://placekitten.com/200/300" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
+                                	</div>
+					<h1>PROJ-TITLE1</h1>
+					<div class="proj-desc" style="display: inline;">
+						<p>"Cats like boxes because they are cryptic animals; they like to hide," Stephen Zawistowski, science adviser for the American Society for the Prevention of Cruelty to Animals, told Business Insider. "And a box gives them a place of safety and security."</p>
+					        <p>While inside a box, cats feel that they cannot be snuck up on from behind or the side — anything that wants to approach them must come directly into their field of vision. In effect, such hiding spaces allow them to watch the world around them without being seen.</p>
+					</div>
+				</div><!--endproject-container-->
+
+			</div><!--endgallery-content-->
+		</div><!--endgallery-->
+
+                </div>
+	</div>
+
+ 
+
+	{% endblock content %}
+
+
+	{% block modal %}
+	 <div id="myModal" class="modal">
+		<span class="close">&times;</span>
+		<img class="modal-content" id="img01">
+		<div id="caption"></div>
+	 </div>
+
+	{% endblock modal %}
+
+	{% block script %}
+	 <script>
+
+		//this variable gets the modal
+		var modal = document.getElementById("myModal");
+		var tabcontent = document.getElementsByClassName("gallery-content");
+
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var img = document.getElementById("myImg");
+		var modalImg = document.getElementById("img01");
+		var captionText = document.getElementById("caption");
+
+		function ViewImage(a){
+		  modal.style.display = "block";
+		  modalImg.src = a;
+		  captionText.innerHTML = this.alt; 
+		}
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		function Filter(a){	
+			for (i = 0; i < tabcontent.length; i++) {
+				if(tabcontent[i].id == a){
+					//alert("MATCH");
+   					tabcontent[i].style.display = "inline-block";
+				}else{
+					tabcontent[i].style.display = "none";
+				}
+  			}
+		
+			
+
+			
+		}
+	
+		
+
+
+	 </script>
+	{% endblock script %}

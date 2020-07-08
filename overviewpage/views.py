@@ -69,3 +69,20 @@ def links(request):
 	}
 	return render(request,'overviewpage/linkspage.html',context)
 
+def projects(request):
+        context = { 
+		'posts': Post.objects.all(),
+		'pageName': 'projects',
+		'pageTitle': 'MY  ',
+		'pageTitleHighlight': 'PROJECTS',
+		'pageTagline': 'A COLLECTION OF ALL MAJOR CODING PROJECTS I HAVE DONE COMPLETE WITH DOCUMENTATION AND COMMENTARY',
+		'pageBottomTitle': 'IF YOU WOULD LIKE TO SEE ',
+		'pageBottomTitleHighlight': ' MORE',
+		'LINK1': 'LINK1',
+		'LINK2': 'LINK2',
+		'LINK3': 'LINK3',
+		'LINK4': 'LINK4',
+        }
+        return render(request,'overviewpage/projectpage.html',context)
+
+
