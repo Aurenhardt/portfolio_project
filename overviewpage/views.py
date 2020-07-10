@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Project
 
 #Dummy Data to mimic entries in a database to pass into the html.
 
@@ -71,12 +71,13 @@ def links(request):
 
 def projects(request):
         context = { 
-		'posts': Post.objects.all(),
+		'projects': Project.objects.all(),
 		'pageName': 'projects',
 		'pageTitle': 'MY  ',
 		'pageTitleHighlight': 'PROJECTS',
 		'pageTagline': 'A COLLECTION OF ALL MAJOR CODING PROJECTS I HAVE DONE COMPLETE WITH DOCUMENTATION AND COMMENTARY',
 		'pageBottomTitle': 'IF YOU WOULD LIKE TO SEE ',
+		'proj-desc':'DESC PASSED THROUGH VIEW',
 		'pageBottomTitleHighlight': ' MORE',
 		'LINK1': 'LINK1',
 		'LINK2': 'LINK2',

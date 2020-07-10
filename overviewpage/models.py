@@ -20,3 +20,23 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Project(models.Model):
+
+    PROJECT_TYPE_CHOICES = (("0", "Apartment Website"), ("1", "Cosmonaut Game"), ("2", "This Website"),)
+
+    title = models.CharField(max_length=100)
+    image_first = models.FileField(null=True, blank=True)
+    image_secondary = models.FileField(null = True, blank=True)
+    description_first = models.TextField()
+    description_second = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User,on_delete=models.CASCADE) #if user is deleted, delete post as well.
+    ProjectCategory = models.CharField(max_length = 20, choices = PROJECT_TYPE_CHOICES, default = '0')
+
+    def post_districtList(self):
+        return dict(Project.PROJECT_TYPE_CHOICES)[self.ProjectCategory]
+
+    def __str__(self):
+        return self.title
+
