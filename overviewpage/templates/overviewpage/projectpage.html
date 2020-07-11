@@ -33,39 +33,39 @@
 	 <div class="gallery-container">
                 <div class="title-card">
 			<div class="gallery">
-				<div id="0" class="gallery-content" style="display:hidden;">
+			{% for project in projects %}
+				<div id="{{project.ProjectCategory}}" class="gallery-content" style="display:hidden;">
                     			<div class="title-card">
                         			<ul>
-                        			 <li><a>TEST </a></li>
-                        			 <li><a class="highlight"> WORK</a></li>
+                        			 <li><a>{{ project.title }} </a></li>
+                        			 <li><a class="highlight"> {{ project.title_highlight }}</a></li>
                         			 <hr class="solid">
                         			</ul>
                     			</div>
 
 					<div class="project-container" style="display: inline-block; padding:50px;">
                         	        	<div id="galleryImg" style="float:right; padding:10px;">
-                                	        	<img id="myImg" src="https://placekitten.com/200/300" style="padding-left:25px;" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
+                                	        	<img id="myImg" src="{{ project.image_first.url }}" style="padding-left:25px;" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
                                 		</div>
-						<div class="proj-title">PROJ-TITLE1</div>
+						<div class="proj-title">{{ project.subtitle_first }}</div>
 						<div class="proj-desc" style="display:">
-							<p>"Cats like boxes because they are cryptic animals; they like to hide," Stephen Zawistowski, science adviser for the American Society for the Prevention of Cruelty to Animals, told Business Insider. "And a box gives them a place of safety and security."</p>
-					       		<p>While inside a box, cats feel that they cannot be snuck up on from behind or the side — anything that wants to approach them must come directly into their field of vision. In effect, such hiding spaces allow them to watch the world around them without being seen.</p>
+							<p>{{ project.description_first }}</p>
 						
 						</div>
 					</div><!--endproject-container-->
 
 					<div class="project-container" style="display: inline-block; padding:50px;">
                                 		<div id="galleryImg" style="float:left; padding:10px;">
-                                        		<img id="myImg" src="https://placekitten.com/200/300" style="padding-right:25px;" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
+                                        		<img id="myImg" src="{{ project.image_first.url }}" style="padding-right:25px;" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
                                 		</div>
-						<div class="proj-title">PROJ-TITLE1</div>
+						<div class="proj-title">{{ project.subtitle_second }}</div>
 						<div class="proj-desc" style="display: inline;">
-							<p>"Cats like boxes because they are cryptic animals; they like to hide," Stephen Zawistowski, science adviser for the American Society for the Prevention of Cruelty to Animals, told Business Insider. "And a box gives them a place of safety and security."
-					        	While inside a box, cats feel that they cannot be snuck up on from behind or the side — anything that wants to approach them must come directly into their field of vision. In effect, such hiding spaces allow them to watch the world around them without being seen.</p>
+							<p>{{ project.description_second }}</p>
 						</div>
 					</div><!--endproject-container-->
 
 				</div><!--endgallery-content-->
+			{% endfor %}
 			</div><!--endtitlecard-->
 
                 </div><!--endgallery-->

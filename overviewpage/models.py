@@ -25,9 +25,13 @@ class Project(models.Model):
 
     PROJECT_TYPE_CHOICES = (("0", "Apartment Website"), ("1", "Cosmonaut Game"), ("2", "This Website"),)
 
-    title = models.CharField(max_length=100)
+    project_title = models.CharField(max_length=100, default='PLACEHOLDER')
+    title = models.CharField(max_length=100, default='PLACEHOLDER')
+    title_highlight = models.CharField(max_length=100, default='PLACEHOLDER')
     image_first = models.FileField(null=True, blank=True)
     image_secondary = models.FileField(null = True, blank=True)
+    subtitle_first = models.CharField(max_length=100, default='PLACEHOLDER')
+    subtitle_second = models.CharField(max_length=100, default='PLACEHOLDER')
     description_first = models.TextField()
     description_second = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
@@ -38,5 +42,5 @@ class Project(models.Model):
         return dict(Project.PROJECT_TYPE_CHOICES)[self.ProjectCategory]
 
     def __str__(self):
-        return self.title
+        return self.project_title
 
