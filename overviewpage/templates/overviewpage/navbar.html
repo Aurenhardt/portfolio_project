@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Imported font from Adobe Fonts -->    
     <link rel="stylesheet" href="https://use.typekit.net/vqu3njy.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- commented out Bootsrap CSS to write my own -->
 
     <!-- Bootstrap CSS
@@ -21,7 +24,11 @@
 
     <title></title>
   </head>
-  <body>
+<body>
+
+<div class="scroll_up_button" onclick="scrollUp()" href="#movehere">
+<i class="fa fa-arrow-up"></i>
+</div>
 
 <!-- navbar -->
  <ul class="navbar">
@@ -67,26 +74,26 @@
 {% block content %}{% endblock %}
 
 <!--parallax-->
- <div class="parallax">
-    
+ <div class="parallax" style="padding-top:0px; padding-bottom:0px;">    
     <div class="title-card">
         <ul>
           <li><a>{{ pageBottomTitle }} </a></li>
           <li><a class="highlight">{{ pageBottomTitleHighlight }}</a></li>
           <hr class="solid">
         </ul>
-    </div>
 
-   <div class="lower-button-group">
-      <ul>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
-      </ul>
-   
-      <ul>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
-      </ul>
+	   <div class="lower-button-group">
+	      <ul>
+	       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
+	       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
+	      </ul>
+
+	      <ul>
+	       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
+	       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
+	      </ul>
+
+	    </div>
 
     </div>    
  </div>
@@ -105,6 +112,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+	function scrollUp() {
+ 	 document.body.scrollTop = 0;
+ 	 document.documentElement.scrollTop = 0;
+	}
+    </script>
+
     {% block script %}{% endblock script %}	
      
 

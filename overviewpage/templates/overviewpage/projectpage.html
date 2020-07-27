@@ -15,9 +15,9 @@
 	        </ul>
 	<!--Title Buttons-->
 	        <ul>
-		  <li><button class="button" onclick=Filter("0")>APARTMENT WEBSITE</button></li>
-	          <li><button class="button" onclick=Filter("1")>COSMONAUT GAME</button></li>
-	          <li><button class="button" onclick=Filter("2")>THIS WEBSITE</button></li>
+		  <li><button class="button" onclick="scrollProject(0)">APARTMENT WEBSITE</button></li>
+	          <li><button class="button" onclick="scrollProject(1)">COSMONAUT GAME</button></li>
+	          <li><button class="button" onclick="scrollProject(2)">THIS WEBSITE</button></li>
 	        </ul>
 	<!--endbuttons-->
 
@@ -30,33 +30,34 @@
 
 
 	{% block content %}
-	 <div class="gallery-container">
+	 <div class="gallery-container" style="padding-top:50px;">
                 <div class="title-card">
 			<div class="gallery">
 			{% for project in projects %}
 				<div id="{{project.ProjectCategory}}" class="gallery-content" style="display:hidden;">
                     			<div class="title-card">
                         			<ul>
+						 <hr class="solid">
                         			 <li><a>{{ project.title }} </a></li>
                         			 <li><a class="highlight"> {{ project.title_highlight }}</a></li>
                         			 <hr class="solid">
                         			</ul>
                     			</div>
 
-					<div class="project-container" style="display: inline-block; padding:50px;">
+					<div class="project-container" style="display: hidden; padding:50px;">
                         	        	<div id="galleryImg" style="float:right; padding:10px;">
                                 	        	<img id="myImg" src="{{ project.image_first.url }}" style="padding-left:25px;" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
                                 		</div>
 						<div class="proj-title">{{ project.subtitle_first }}</div>
-						<div class="proj-desc" style="display:">
+						<div class="proj-desc" style="display:inline">
 							<p>{{ project.description_first }}</p>
 						
 						</div>
 					</div><!--endproject-container-->
 
-					<div class="project-container" style="display: inline-block; padding:50px;">
+					<div class="project-container" style="display: hidden; padding:50px;">
                                 		<div id="galleryImg" style="float:left; padding:10px;">
-                                        		<img id="myImg" src="{{ project.image_first.url }}" style="padding-right:25px;" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
+                                        		<img id="myImg" src="{{ project.image_secondary.url }}" style="padding-right:25px;" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
                                 		</div>
 						<div class="proj-title">{{ project.subtitle_second }}</div>
 						<div class="proj-desc" style="display: inline;">
@@ -127,7 +128,10 @@
 		}
 	
 		
-
+                function scrollProject(a){
+			var location = document.getElementById(a);                        
+			window.scrollTo(0, location.offsetTop-75);
+                }
 
 	 </script>
 	{% endblock script %}
