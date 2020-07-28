@@ -32,7 +32,7 @@
 	{% block content %}
 	 <div class="gallery-container" style="padding-top:50px;">
                 <div class="title-card">
-			<div class="gallery">
+			<div id="projects" class="gallery">
 			{% for project in projects %}
 				<div id="{{project.ProjectCategory}}" class="gallery-content" style="display:hidden;">
                     			<div class="title-card">
@@ -46,7 +46,7 @@
 
 					<div class="project-container" style="display: hidden; padding:50px;">
                         	        	<div id="galleryImg" style="float:right; padding:10px;">
-                                	        	<img id="myImg" src="{{ project.image_first.url }}" style="padding-left:25px;" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
+                                	        	<img id="projImg" src="{{ project.image_first.url }}" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
                                 		</div>
 						<div class="proj-title">{{ project.subtitle_first }}</div>
 						<div class="proj-desc" style="display:inline">
@@ -57,7 +57,7 @@
 
 					<div class="project-container" style="display: hidden; padding:50px;">
                                 		<div id="galleryImg" style="float:left; padding:10px;">
-                                        		<img id="myImg" src="{{ project.image_secondary.url }}" style="padding-right:25px;" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
+                                        		<img id="projImg" src="{{ project.image_secondary.url }}" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
                                 		</div>
 						<div class="proj-title">{{ project.subtitle_second }}</div>
 						<div class="proj-desc" style="display: inline;">
