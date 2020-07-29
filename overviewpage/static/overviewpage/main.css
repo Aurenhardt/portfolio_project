@@ -236,7 +236,7 @@ body {
 }
 
 .gallery-container .title-card ul{
-  padding: 0px;
+  padding: 75px;
   text-align: center;
   position: static;
 }
@@ -266,7 +266,8 @@ body {
    text-align:left;
 }
 
-.gallery .gallery-content .project-container .proj-title{
+/*.gallery .gallery-content .project-container .proj-title*/
+.proj-title {
    font-family: din-condensed, sans-serif;
    font-weight:100;
    font-size:500%;
@@ -275,6 +276,12 @@ body {
 
 #projImg{
    padding:25px;   
+   width:50%;
+}
+
+#proj-links{
+  border-style:solid;
+  border-radius:35px;
 }
 
 /*end Project Container*/
@@ -320,6 +327,23 @@ body {
 
 .button{
   background-color: transparent;
+  border: 5px solid #00E0A8;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  
+}
+
+.button-active{
+  background-color: #00E0A8;
   border: 5px solid #00E0A8;
   color: white;
   padding: 15px 50px;
@@ -475,7 +499,6 @@ body {
 
   #projImg
   {
-    width:300px;
     padding:0px;
   }
 

@@ -76,13 +76,13 @@ def projects(request):
 		'pageTitle': 'MY  ',
 		'pageTitleHighlight': 'PROJECTS',
 		'pageTagline': 'A COLLECTION OF ALL MAJOR CODING PROJECTS I HAVE DONE COMPLETE WITH DOCUMENTATION AND COMMENTARY',
-		'pageBottomTitle': 'IF YOU WOULD LIKE TO SEE ',
+		'pageBottomTitle': 'PROJECT ',
 		'proj-desc':'DESC PASSED THROUGH VIEW',
-		'pageBottomTitleHighlight': ' MORE',
+		'pageBottomTitleHighlight': ' LINKS',
 		'LINK1': 'DEMONSTRATION',
 		'LINK2': 'DOCUMENTATION',
-		'LINK3': 'GITHUB',
-		'LINK4': 'STORYBOARDS',
+		'LINK3': 'GITHUB REPO  ',
+		'LINK4': 'STORYBOARDS  ',
         }
         return render(request,'overviewpage/projectpage.html',context)
 

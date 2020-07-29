@@ -14,11 +14,12 @@
 	          <hr class="solid">
 	        </ul>
 	<!--Title Buttons-->
-	        <ul>
-		  <li><button class="button" onclick="scrollProject(0)">APARTMENT WEBSITE</button></li>
-	          <li><button class="button" onclick="scrollProject(1)">COSMONAUT GAME</button></li>
-	          <li><button class="button" onclick="scrollProject(2)">THIS WEBSITE</button></li>
-	        </ul>
+                <ul>
+                  <li><button id="btn0" class="button-active" onclick="Filter(0)">APARTMENT WEBSITE</button></li>
+                  <li><button id="btn1" class="button" onclick="Filter(1)">COSMONAUT GAME</button></li>
+                  <li><button id="btn2" class="button" onclick="Filter(2)">THIS WEBSITE</button></li>
+                </ul>
+
 	<!--endbuttons-->
 
 	    </div>
@@ -34,43 +35,51 @@
                 <div class="title-card">
 			<div id="projects" class="gallery">
 			{% for project in projects %}
-				<div id="{{project.ProjectCategory}}" class="gallery-content" style="display:hidden;">
+				<div id="{{project.ProjectCategory}}" class="gallery-content" style="display:none;">
                     			<div class="title-card">
-                        			<ul>
 						 <hr class="solid">
                         			 <li><a>{{ project.title }} </a></li>
                         			 <li><a class="highlight"> {{ project.title_highlight }}</a></li>
                         			 <hr class="solid">
-                        			</ul>
                     			</div>
 
-					<div class="project-container" style="display: hidden; padding:50px;">
-                        	        	<div id="galleryImg" style="float:right; padding:10px;">
+					<div class="project-container" style="padding:50px;">
+                        	        	<div id="galleryImg" style=" padding:10px;">
                                 	        	<img id="projImg" src="{{ project.image_first.url }}" alt="Test" width="400" height="auto" onclick=ViewImage("{{post.image.url}}")>
                                 		</div>
 						<div class="proj-title">{{ project.subtitle_first }}</div>
-						<div class="proj-desc" style="display:inline">
+						<div class="proj-desc" >
 							<p>{{ project.description_first }}</p>
-						
 						</div>
 					</div><!--endproject-container-->
 
-					<div class="project-container" style="display: hidden; padding:50px;">
-                                		<div id="galleryImg" style="float:left; padding:10px;">
-                                        		<img id="projImg" src="{{ project.image_secondary.url }}" alt="Test" width="400" height="auto" onclick="ViewImage(&quot;&quot;)">
-                                		</div>
+					<div class="project-container" style="padding:50px;">
 						<div class="proj-title">{{ project.subtitle_second }}</div>
 						<div class="proj-desc" style="display: inline;">
 							<p>{{ project.description_second }}</p>
 						</div>
 					</div><!--endproject-container-->
 
-				</div><!--endgallery-content-->
+		<div class="project-container" style="display:hidden; padding:50px;">    
+		          <div class="proj-title">{{ pageBottomTitle }} {{ pageBottomTitleHighlight }}</div>
+	
+		           <div id="proj-links" class="lower-button-group">
+		              <ul>
+		               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
+		               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
+		               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
+		               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
+		              </ul>
+		            </div>
+		</div><!--endproject-container-->
+
+</div><!--endgallery-content-->
+
 			{% endfor %}
 			</div><!--endtitlecard-->
-
                 </div><!--endgallery-->
 	</div>
+
 
  
 
@@ -89,8 +98,12 @@
 	{% block script %}
 	 <script>
 
+		document.getElementById("0").style.display = "inline-block";
+
 		//this variable gets the modal
 		var modal = document.getElementById("myModal");
+		
+		//this variable grabs the html for each project
 		var tabcontent = document.getElementsByClassName("gallery-content");
 
 		// Get the image and insert it inside the modal - use its "alt" text as a caption
@@ -113,14 +126,13 @@
 		}
 
 		function Filter(a){	
-			for (i = 0; i < tabcontent.length; i++) {
-				if(tabcontent[i].id == a){
-					//alert("MATCH");
-   					tabcontent[i].style.display = "inline-block";
-				}else{
-					tabcontent[i].style.display = "none";
-				}
-  			}
+			for (i = 0; i < tabcontent.length; i++) {tabcontent[i].style.display = "none";}
+			for(i=0; i < 3; i++){document.getElementById("btn"+i).className="button";}
+                        document.getElementById("btn"+a).className="button-active";
+   			tabcontent[a].style.display = "inline-block";
+
+			var location = document.getElementById(a);
+                        window.scrollTo(0, location.offsetTop-75);
 		
 			
 
