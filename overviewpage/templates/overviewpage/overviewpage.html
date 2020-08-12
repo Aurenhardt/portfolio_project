@@ -1,9 +1,17 @@
+
 {% extends "overviewpage/base.html" %}
 
-	{% block content %}
-		{% for post in posts %}
-			<h1>{{post.title}}</h1>
-			<p>By {{post.author}} on {{post.date_posted}}</p>
-			<p>{{ post.content}}</p>
-		{% endfor %}
+	{% block gallery %}
+		<div class="title-card">
+			<div class="gallery">
+			{% for post in posts %}
+				    <div id="galleryImg">
+					<img id="myImg" src="{{post.image.url}}" alt="Test" width="400" height="400" onclick=ViewImage("{{post.image.url}}")>
+				    </div>				    
+			{% endfor %}
+			</div>
+
+
+		</div>
+	
 	{% endblock %}

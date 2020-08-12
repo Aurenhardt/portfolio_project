@@ -1,0 +1,179 @@
+<!-- loading static folder to access .css  -->
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Imported font from Adobe Fonts -->    
+    <link rel="stylesheet" href="https://use.typekit.net/vqu3njy.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<!-- commented out Bootsrap CSS to write my own -->
+
+    <!-- Bootstrap CSS
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
+
+
+    <!-- Loading the local .css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'overviewpage/main.css' %}">
+
+    <title></title>
+  </head>
+<body>
+
+<div class="scroll_up_button" onclick="scrollUp()" href="#movehere">
+<i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- navbar -->
+ <ul id="main-navbar" class="navbar">
+{% if pageName == "home" %}
+   <li><a class="btn active" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
+{% endif %}
+
+{% if pageName == "projects" %}
+   <li><a class="btn active" href="{% url 'overviewpage-projects' %}">PROJECTS</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-projects' %}">PROJECTS</a></li>
+{% endif %}
+
+{% if pageName == "gallery" %}
+   <li><a class="btn active" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>
+{% endif %}
+  <!-- <li><a class="btn" href="#gallery">GALLERY</a></li>-->
+
+{% if pageName == "about" %}
+   <li><a class="btn active" href="{% url 'overviewpage-about' %}">ABOUT</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-about' %}">ABOUT</a></li>
+{% endif %}
+
+
+{% if pageName == "links" %}
+   <li><a class="btn active" href="{% url 'overviewpage-links' %}">LINKS</a></li>
+{% else %}
+   <li><a class="btn" href="{% url 'overviewpage-links' %}">LINKS</a></li>
+{% endif %}
+ </ul>	
+<!-- endnavbar -->
+
+<!-- dropdown -->
+<ul id="dropdown-navbar" class="navbar">
+	<li><a id="dropdown-bars" onclick="dropDown()"><i class="fa fa-bars"></i></a><li>
+</ul>
+
+<ul id="dropdown-content">
+		<li><a id="dropdown-navbar-btn" class="dropdown-btn" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
+		<li><a id="dropdown-navbar-btn" class="dropdown-btn" href="{% url 'overviewpage-projects' %}">PROJECTS</a></li>
+		<li><a id="dropdown-navbar-btn" class="dropdown-btn" href="{% url 'overviewpage-gallery' %}">GALLERY</a></li>
+		<li><a id="dropdown-navbar-btn" class="dropdown-btn" href="{% url 'overviewpage-about' %}">ABOUT</a></li>
+		<li><a id="dropdown-navbar-btn" class="dropdown-btn" href="{% url 'overviewpage-links' %}">LINKS</a></li>
+</ul>
+
+
+<!--enddropdown-->
+
+<!--titlecard-->
+{% block titlecard%}{% endblock %}
+<!--endtitlecard-->
+
+{% block content %}{% endblock %}
+
+<!--parallax-->
+ <div class="parallax" style="padding-top:0px; padding-bottom:0px;">    
+    <div class="title-card">
+        <ul>
+	  <hr class="solid">
+          <li><a>{{ pageBottomTitle }} </a></li>
+          <li><a class="highlight">{{ pageBottomTitleHighlight }}</a></li>
+          <hr class="solid">
+        </ul>
+
+	   <!--<div class="lower-button-group">
+              <ul>
+               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
+               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
+               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
+               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
+              </ul>
+	   </div>-->
+
+
+<div class="table-container">
+	<div class="btn-group">
+    	<div class="lower-btn" style="padding: 2px 17px;">
+        <i class="fa fa-linkedin-square"></i>
+		</div>
+        <div class="spacer">LINKEDIN</div>
+        <div class="lower-btn" style="padding: 14px 17px;">
+        <i id="icon" class="fa fa-github"></i>
+		</div>
+        <div class="spacer">GITHUB</div>
+    </div>
+    <div class="btn-group">
+        <div class="lower-btn" style="padding: 14px 17px;">
+        <i id="icon" class="fa fa-instagram"></i>
+		</div>
+        <div class="spacer">INSTAGRAM</div>
+        <div class="lower-btn" style="padding: 15px 15px;">
+        <i id="icon" class="iconify" data-icon="jam-fiverr" data-inline="false"></i>
+		</div>
+		<div class="spacer">FIVVER</div>
+    </div>
+</div><!--end table-container-->
+
+
+    </div>    
+ </div>
+<!--endparallax-->
+
+<!--credits
+ <ul class="credits">
+     <li><a>Credits: Anonymous</a></li>
+ </ul>    
+-->
+
+    {% block modal %}{% endblock modal %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+	function scrollUp() {
+ 	 document.body.scrollTop = 0;
+ 	 document.documentElement.scrollTop = 0;
+	}
+
+	function dropDown(){
+		//alert("connected");
+		//document.getElementById("dropdown-content").style.display="block";	 
+	}
+
+	window.onclick = function(event) {
+          if (event.target.matches('.fa')) {
+		//alert("opening");
+                document.getElementById("dropdown-content").style.display="block";
+          }else if(!event.target.matches('.fa') && !event.target.matches('.dropdown-btn')){
+		//alert("closing");
+		document.getElementById("dropdown-content").style.display="none";
+	  }
+	}
+
+    </script>
+
+    {% block script %}{% endblock script %}	
+     
+
+  </body>
+</html>

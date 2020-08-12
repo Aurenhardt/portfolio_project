@@ -1,0 +1,25 @@
+{% extends "overviewpage/navbar.html" %}
+
+	{% block titlecard %}
+	<!--parallax-->
+	 <div class="parallax" style="padding-top:50px;">
+	    <div class="title-card">
+		
+	        <ul>
+	          <li><a>{{ pageTitle }}</a></li>
+	          <li><a>   </a></li>
+	          <li><a class="highlight">{{ pageTitleHighlight }}</a></li>
+	        </ul>
+	        <ul>
+		  <hr class="solid" style="margin-bottom: 50px;">
+	          <li><a class="tagline" style="font-size: 150%;">{{ pageTagline }}</a></li>
+	        </ul>
+	    </div>
+	 </div>
+	<!--endparallax-->
+
+	{% endblock %}
+
+        {% block content %}
+        {% endblock %}
+

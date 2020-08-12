@@ -25,32 +25,49 @@
 
 <!-- navbar -->
  <ul class="navbar">
-   <li><a class="active" href="#overview">OVERVIEW</a></li>
-   <li><a href="#projects">PROJECTS</a></li>
-   <li><a href="#gallery">GALLERY</a></li>
-   <li><a href="#about">ABOUT</a></li>
-   <li><a href="#links">LINKS</a></li>
+   <li><a class="btn active" href="{% url 'overviewpage-top' %}">OVERVIEW</a></li>
+   <li><a class="btn" href="#projects">PROJECTS</a></li>
+   <li><a class="btn" href="#gallery">GALLERY</a></li>
+   <li><a class="btn" href="{% url 'overviewpage-about' %}">ABOUT</a></li>
+   <li><a class="btn" href="{% url 'overviewpage-links' %}">LINKS</a></li>
  </ul>	
 <!-- endnavbar -->
 
+
+<!--parallax-->
  <div class="parallax">
     <div class="title-card">
+	<hr class="solid">
 	<ul>
-          <li><a>CHRISTIAN </a></li>
+          <li><a>{{ pageTitle }}</a></li>
           <li><a>   </a></li>
-          <li><a class="highlight"> GOMEZ</a></li>
+          <li><a class="highlight">{{ pageTitleHighlight }}</a></li>
         </ul>
         <ul>
-          <li><a class="tagline">ILLUSTRATOR | WEB DESIGNER | DEVELOPER</a></li>
+          <li><a class="tagline">{{ pageTagline }}</a></li>
           <hr class="solid">
         </ul>
+    {% if pageName != "about" %}
         <ul>
           <li><button class="button" href="#contactme">CONTACT ME</button></li>
           <li><button class="button" href="resume">MY RESUME</button></li>
         </ul>
+    {% endif %}
+
+<div>
+    {% if pageName == "about" %}
+	<ul>
+          <li>{% block content %}{% endblock %}</li>
+          <hr class="solid">
+        </ul>
+    {% endif %}
+</div>
+
     </div>
  </div>
+<!--endparallax-->
 
+{% if galleryEnabled == "true" %}
  <div class="gallery-container">
     <div class="title-card">
         <ul>
@@ -59,43 +76,91 @@
           <hr class="solid">
         </ul>
     </div>
- 
-   		{% block content %}{% endblock %}
+	   	{% block gallery %}{% endblock %} 		
  </div>
+{% endif %}
 
-
+<!--parallax-->
  <div class="parallax">
-    <div class="lower-button-group">
+    
+    <div class="title-card">
+        <ul>
+          <li><a>{{ pageBottomTitle }} </a></li>
+          <li><a class="highlight">{{ pageBottomTitleHighlight }}</a></li>
+          <hr class="solid">
+        </ul>
+    </div>
+
+   <div class="lower-button-group">
       <ul>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>LINK1</a></li>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>LINK2</a></li>
+       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
+       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
       </ul>
    
       <ul>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>LINK3</a></li>
-       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>LINK4</a></li>
+       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
+       <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
       </ul>
 
     </div>    
  </div>
+<!--endparallax-->
 
 <!--credits-->
  <ul class="credits">
+    <script>
+        if(pageName == "about"){
+                alert(5 + 6);
+        }
+    </script>
      <li><a>Credits: Anonymous</a></li>
+    
 
-<!--        <li><a class="active" href="#overview">OVERVIEW</a></li>
-        <li><a href="#projects">PROJECTS</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#links">LINKS</a></li>
--->
  </ul>    
 <!--endcredits-->
+
+<!-- The Modal -->
+	<div id="myModal" class="modal">
+<!-- The Close Button -->
+		<span class="close">&times;</span>
+<!-- Modal Content (The Image) -->
+		<img class="modal-content" id="img01">
+<!-- Modal Caption (Image Text) -->
+		<img class="modal-background" src="{%  static 'img/ModalBackground.png' %}">
+		<div id="caption"></div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+
+	//this variable gets the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+	var img = document.getElementById("myImg");
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+
+	function ViewImage(a){
+	  modal.style.display = "block";
+	  modalImg.src = a;
+	  captionText.innerHTML = this.alt; 
+	}
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+    </script>
+
+
+
   </body>
 </html>

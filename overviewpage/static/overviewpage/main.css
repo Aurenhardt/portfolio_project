@@ -1,10 +1,181 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;  
 }
 
+.show{
+  display:block;
+}
+
+.scroll_up_button{
+  background-color: transparent;
+  border: solid;
+  border-color: #00E0A8;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  position:fixed;
+  z-index: 99;
+  bottom: 20px;
+  right: 30px;
+  border-radius:50%;
+}
+
+.scroll_up_button:hover{
+  background-color: #00E0A8;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  width:400px;
+  height:400px;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0);  /*Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black with opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-background{
+   width: 80%;height: auto;position: absolute;display: block;bottom: 0;z-index: -1;padding: 100px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption , .modal-background{
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
 /* adjust look of the unsorted list with the following attributes */
+
+#dropdown-bars{
+  color:white;
+  display:none;
+}
+
+#dropdown-bars:hover{
+  color:#00E0A8;
+}
+
+#dropdown-navbar{
+  display:none;
+}
+
+#dropdown-content{
+  position:fixed;
+  top: 0;
+  width:100%;
+  display:none;
+  list-style-type: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111;
+  text-decoration: none;
+  text-align: center;
+  border-style: none;
+  max-width:100%;
+  opacity: 1;
+
+}
+
+#dropdown-content li{
+  display:inline;
+  text-align:center;
+  text-decoration: none;
+  font-family: din-condensed, sans-serif;
+  font-weight: bold;
+}
+
+.dropdown-btn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  width:100%;
+}
+
+.dropdown-btn:hover {
+  background-color: #00E0A8;
+}
+
 .navbar {
-  positon:top;
+  /*positon:top;*/
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
   list-style-type: none;
   margin: 0;
   border: 0;
@@ -31,17 +202,18 @@ body {
 
 /* adjust the 'a' elements in the list entry to look like the follwoing */
 
-.navbar a {
+.navbar .btn {
   display: inline-block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  width:90px;
 }
 
 /* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
 
-.navbar a:hover {
+.navbar .btn:hover {
   border-bottom: 5px solid #00E0A8;
 }
 
@@ -52,13 +224,16 @@ body {
 
 }
 
+/* adjust the hover behavior of the 'a' elements in the the list entry by changing the color */
+
 .parallax{
   border: none;
+  height: 100%;
   padding-top: 100px;
+  padding-bottom: 25%;
+  padding-left: 100px;
   padding-right: 100px;
-  padding-bottom: 100px;
-  padding-left: 25px;
-/* getting image from static */
+/* getting image from static */ 
   background: url('/static/img/WebsiteBackground.png');
 
 /* setting height */
@@ -108,10 +283,58 @@ body {
 }
 
 .gallery-container .title-card ul{
-  padding: 0px;
+  padding: 75px;
   text-align: center;
-  position: center;
+  position: static;
 }
+/*Gallery*/
+.gallery {
+  display: inline-block;
+  padding: 50px;
+  overflow:hidden;
+  width: fit-content;
+  text-align: center;
+}
+
+#galleryImg{
+  overflow:hidden;
+  padding: 10px;
+  display:inline-block;
+}
+
+#galleryImg>img{
+  vertical-align:middle;
+}
+
+
+/* Project Container Begin */
+.gallery .gallery-content .project-container .proj-desc {
+   font-family: sweet-sans-pro, sans-serif;
+   text-align:left;
+}
+
+/*.gallery .gallery-content .project-container .proj-title*/
+.proj-title {
+   font-family: din-condensed, sans-serif;
+   font-weight:100;
+   font-size:500%;
+   font-style:italic;
+}
+
+#projImg{
+   padding:25px;   
+   width:50%;
+}
+
+#proj-links{
+  border-style:solid;
+  border-radius:35px;
+}
+
+/*end Project Container*/
+
+
+/*=====*/
 
 .parallax .title-card{
   position:center;
@@ -127,10 +350,12 @@ body {
 
 .title-card ul{
   margin: 0px;
+  text-align:center;
+  padding:0px;
 }
 
 .title-card a{  
-  font-size: 700%;
+  font-size: 550%;
 }
 
 .highlight{
@@ -138,7 +363,7 @@ body {
 }
 
 .parallax .tagline{
-  font-size: 200%;
+  font-size: 150%;
   font-family: sweet-sans-pro, sans-serif;
   padding-bottom: 25px;
 }
@@ -146,6 +371,8 @@ body {
 .solid{
   border-top: 2px solid white;
 }
+
+/*button group begin */
 
 .button{
   background-color: transparent;
@@ -155,13 +382,30 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   font-family: din-condensed, sans-serif;
   font-weight: normal;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 20px;
-  
+  width:230px;  
+}
+
+.button-active{
+  background-color: #00E0A8;
+  border: 5px solid #00E0A8;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-family: din-condensed, sans-serif;
+  font-weight: normal;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  width:230px;
 }
 
 .button:hover{
@@ -169,7 +413,8 @@ body {
 }
 
 .lower-button-group{
- padding-left: 100px;
+/* padding-left: 100px;*/
+  padding:50px;
 }
 
 .lower-button-group .button-text-unit{
@@ -177,6 +422,8 @@ body {
   padding-bottom:50px;
   padding-left:100px;
   padding-right:100px;
+  display:inline-block;
+
 }
 
 .lower-button-group ul{
@@ -247,4 +494,249 @@ body {
   color: white;
   text-align: center;
   padding: 14px 16px;
+}
+
+/* New Lower Button Group */
+.table-container{
+  text-align: -webkit-center;
+  padding:0px;
+}
+.btn-group{
+  padding:100px;
+  padding-top:50px;
+  padding-bottom:0px;
+  display:table-cell;
+}
+.spacer{
+  padding-top:25px;
+  padding-bottom:100px;
+  text-align:center;
+  font-size:35px;
+  font-family: din-condensed, sans-serif;
+  font-weight:normal;
+}
+.label{
+  display: table-footer-group;
+  text-align: center;
+  padding-top:10px;
+}
+#icon{
+  display:table-cell;
+  font-size:50px;
+  text-align:center;
+}
+.iconify{
+  text-align:center;
+  vertical-align:middle;
+}
+.lower-btn{
+  display:table-cell;
+  color: white;
+  padding: 10px 17px;
+  font-size: 50px;
+  cursor: pointer;
+  border-radius:50%;
+  border:solid;
+  border-color:#00E0A8;
+}
+
+.lower-btn:hover{
+  background-color: #00E0A8;
+}
+
+#proj-button-group{
+  padding-left:100px;
+  padding-right:100px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+#proj-gallery-container{
+  padding-top:50px; 
+  padding-bottom:0px; 
+  padding-left:25px; 
+  padding-right:25px;
+}
+
+/* ==== Responsiveness Block ==== */
+
+@media screen and (max-width: 1080px){
+  .navbar .btn{
+	width:80px;
+  }
+
+  .title-card ul {text-align: center;}
+  .title-card {font-size:50%;}
+  .title-card a.tagline {font-size:125%;}
+  .parallax{
+	padding-right:0px;
+        padding-left:0px;
+        padding-top:50px;
+        padding-bottom:50%;
+
+  }
+  .parallax .title-card ul{
+    overflow:hidden;
+    
+  }  
+  .button{width:275px;}
+  .button-active{width:275px;}
+  .lower-button-group{
+    padding:0px;
+    display:block;
+  }
+  .lower-button-group ul{padding:0px;}
+  .lower-button-group ul li.button-text-unit{
+    padding:0px;
+    padding-left:100px;
+    text-align:center;
+    display:block;
+    text-align:left;
+  }
+    .lower-button-group ul li.button-text-unit a{
+    padding:0px;
+    padding-left:10px;
+    text-align:center;
+  }
+  .lower-button-group .button{
+    border-radius:50%;
+    height:30px;
+    width:30px;
+  }
+
+  #myImg {
+  width:200px;
+  height:200px;
+  }
+
+  #projects.gallery{
+    padding:0px;
+  }
+
+  #projImg
+  {
+    padding:0px;
+  }
+
+  #projects.gallery .gallery-content .title-card{
+  }
+
+  #projects.gallery .gallery-content .project-container{
+    display:inline;
+  }
+
+  p{
+   font-size:12px;
+  }
+
+  #proj-gallery-container{
+   padding-left:25px;
+   padding-right:25px;
+  }
+
+  .gallery-container{
+    padding-left:0px;
+    padding-right:0px;
+  }
+
+  .gallery-container .title-card ul{
+    padding: 0px;
+    text-align: center;
+    position: static;
+  }
+
+
+ /* New Lower Button Group */
+  .table-container{
+    text-align: -webkit-center;
+    padding:0px;
+  }
+  .btn-group{
+  }
+  .spacer{
+    padding-top:15px;
+    padding-bottom:50px;
+    font-size:35px;;
+  }
+
+  .lower-btn{
+  }
+
+  #proj-button-group.btn-group{
+    padding:25px;
+    
+  }
+
+}
+
+@media screen and (max-width: 700px){
+  #main-navbar{
+    display:none;
+  }
+
+  #dropdown-navbar{
+    display:block;
+   }
+  
+  #dropdown-bars{
+    display:block;
+    padding: 10px;
+    padding-left: 20px;
+    float: left;
+    font-size: 25px;
+  }
+
+  #dropdown-navbar-btn{
+    display:block;
+  }
+
+
+ /* New Lower Button Group */
+  .table-container{
+    text-align: -webkit-center;
+    padding:0px;
+  }
+  .btn-group{
+    display:block;
+    padding-top:0px;
+  }
+  .spacer{
+    padding-top:15px;
+    padding-bottom:50px;
+    font-size:35px;;
+  }
+
+  .lower-btn{
+  }
+
+  #proj-button-group.btn-group{
+    padding:25px;
+    display:block;
+    padding-top:0px;
+    
+  }
+
+}
+
+@media screen and (max-width: 400px){
+ /* New Lower Button Group */
+  .table-container{
+    text-align: -webkit-center;
+    padding:0px;
+  }
+  .btn-group{
+    padding-top:0px;
+    display:block;
+  }
+  .spacer{
+    padding-top:15px;
+    padding-bottom:px;
+    font-size:0px;
+    
+  }
+
+  .lower-btn{
+
+  }
+
 }
