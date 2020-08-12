@@ -76,7 +76,7 @@ def projects(request):
 		'pageTitle': 'MY  ',
 		'pageTitleHighlight': 'PROJECTS',
 		'pageTagline': 'A COLLECTION OF ALL MAJOR CODING PROJECTS I HAVE DONE COMPLETE WITH DOCUMENTATION AND COMMENTARY',
-		'pageBottomTitle': 'PROJECT ',
+		'pageBottomTitle': 'EXTERNAL ',
 		'proj-desc':'DESC PASSED THROUGH VIEW',
 		'pageBottomTitleHighlight': ' LINKS',
 		'LINK1': 'DEMONSTRATION',
