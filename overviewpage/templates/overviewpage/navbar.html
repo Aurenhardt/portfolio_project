@@ -68,7 +68,7 @@
 
 <!-- dropdown -->
 <ul id="dropdown-navbar" class="navbar">
-	<li><a id="dropdown-bars" onclick="dropDown()"><i class="fa fa-bars"></i></a><li>
+	<li><a id="dropdown-bars" class="dropdownBtn" onclick="dropDown()"><i class="fa fa-bars"></i></a><li>
 </ul>
 
 <ul id="dropdown-content">
@@ -98,36 +98,32 @@
           <hr class="solid">
         </ul>
 
-	   <!--<div class="lower-button-group">
-              <ul>
-               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK1}}</a></li>
-               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK2}}</a></li>
-               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK3}}</a></li>
-               <li class="button-text-unit"><button class="button" href="#LINK1"></button><a>{{LINK4}}</a></li>
-              </ul>
-	   </div>-->
-
-
 <div class="table-container">
 	<div class="btn-group">
-    	<div class="lower-btn" style="padding: 2px 17px;">
+    	<div class="lower-btn" style="padding: 2px 17px;" onclick="redirectFunction('LINKEDIN')" >
         <i class="fa fa-linkedin-square"></i>
 		</div>
         <div class="spacer">LINKEDIN</div>
-        <div class="lower-btn" style="padding: 14px 17px;">
+
+
+        <div class="lower-btn" style="padding: 14px 17px;" onclick="redirectFunction('GITHUB')">
         <i id="icon" class="fa fa-github"></i>
 		</div>
         <div class="spacer">GITHUB</div>
-    </div>
+
+
+ </div>
     <div class="btn-group">
-        <div class="lower-btn" style="padding: 14px 17px;">
+        <div class="lower-btn" style="padding: 14px 17px;" onclick="redirectFunction('INSTAGRAM')">
         <i id="icon" class="fa fa-instagram"></i>
 		</div>
         <div class="spacer">INSTAGRAM</div>
-        <div class="lower-btn" style="padding: 15px 15px;">
+
+
+        <div class="lower-btn" style="padding: 15px 15px;" onclick="redirectFunction('FIVERR')">
         <i id="icon" class="iconify" data-icon="jam-fiverr" data-inline="false"></i>
 		</div>
-		<div class="spacer">FIVVER</div>
+		<div class="spacer">FIVERR</div>
     </div>
 </div><!--end table-container-->
 
@@ -156,19 +152,39 @@
 	}
 
 	function dropDown(){
-		//alert("connected");
-		//document.getElementById("dropdown-content").style.display="block";	 
+		document.getElementById("dropdown-content").style.display="block";	 
+	}
+
+	function redirectFunction(a){
+		alert(a);
+	
+		if(a == 'LINKEDIN'){
+			window.open("https://www.linkedin.com/in/christian-samuel-gomez-b3163b1a4/");
+		}else if(a == 'GITHUB'){
+			window.open("https://github.com/Aurenhardt");
+		}else if(a == 'INSTAGRAM'){
+			window.open("https://www.instagram.com/aurenhardt/");
+		}else if(a == 'FIVERR'){
+			alert("Currently Not Availible");
+			//window.open("");
+		}else if(a == 'RESUME' ){
+			window.open("https://docs.google.com/document/d/1DbXmBuZdLRqFLcI4G5A3j1u0EXAzAJ1SkFC1Evu4TFo/edit?usp=sharing")
+		}
+
 	}
 
 	window.onclick = function(event) {
-          if (event.target.matches('.fa')) {
-		//alert("opening");
+          if (event.target.matches('.dropdownBtn')) {
+		alert("connected");
                 document.getElementById("dropdown-content").style.display="block";
           }else if(!event.target.matches('.fa') && !event.target.matches('.dropdown-btn')){
 		//alert("closing");
 		document.getElementById("dropdown-content").style.display="none";
 	  }
 	}
+
+	
+
 
     </script>
 
